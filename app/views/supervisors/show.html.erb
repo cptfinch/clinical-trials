@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @supervisor.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @supervisor.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_supervisor_path(@supervisor) %> |
+<%= link_to 'Back', supervisors_path %>

@@ -1,0 +1,1816 @@
+  [4;36;1mSQL (0.011749)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.011641)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.003557)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002082)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;35;1mSQL (0.005348)[0m   [0mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003211)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.002733)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.002635)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000686)[0m   [0mPRAGMA index_list(trials)[0m
+DISPATCHER FAILSAFE RESPONSE (has cgi) Sat Aug 25 23:23:06 +0100 2007
+  Status: 500 Internal Server Error
+  A secret is required to generate an integrity hash for cookie session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase" } in config/environment.rb
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:54:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_ext/session.rb:29:in `initialize'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `new'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `session'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:156:in `stale_session_check!'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:111:in `session'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/base.rb:1117:in `assign_shortcuts_without_flash'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/flash.rb:174:in `assign_shortcuts'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/base.rb:488:in `process_without_filters'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+DISPATCHER FAILSAFE RESPONSE (has cgi) Sat Aug 25 23:25:09 +0100 2007
+  Status: 500 Internal Server Error
+  A secret is required to generate an integrity hash for cookie session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase" } in config/environment.rb
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:54:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_ext/session.rb:29:in `initialize'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `new'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `session'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:156:in `stale_session_check!'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:111:in `session'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/base.rb:1117:in `assign_shortcuts_without_flash'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/flash.rb:174:in `assign_shortcuts'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/base.rb:488:in `process_without_filters'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process_without_test'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/test_process.rb:15:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/integration.rb:266:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/integration.rb:152:in `get'
+    (irb):4:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52
+DISPATCHER FAILSAFE RESPONSE (has cgi) Sat Aug 25 23:25:17 +0100 2007
+  Status: 500 Internal Server Error
+  No route matches "/" with {:method=>:get}
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/integration.rb:266:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/integration.rb:152:in `get'
+    (irb):5:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52
+DISPATCHER FAILSAFE RESPONSE (has cgi) Sat Aug 25 23:25:26 +0100 2007
+  Status: 500 Internal Server Error
+  No route matches "/index" with {:method=>:get}
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/integration.rb:266:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/integration.rb:152:in `get'
+    (irb):6:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52
+DISPATCHER FAILSAFE RESPONSE (has cgi) Sat Aug 25 23:25:36 +0100 2007
+  Status: 500 Internal Server Error
+  No route matches "/bum" with {:method=>:get}
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/integration.rb:266:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/integration.rb:152:in `get'
+    (irb):7:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52
+DISPATCHER FAILSAFE RESPONSE (has cgi) Sat Aug 25 23:27:38 +0100 2007
+  Status: 500 Internal Server Error
+  A secret is required to generate an integrity hash for cookie session data. Use config.action_controller.session = { :session_key => "_myapp_session", :secret => "some secret phrase" } in config/environment.rb
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/session/cookie_store.rb:54:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_ext/session.rb:29:in `initialize'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `new'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:124:in `session'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:156:in `stale_session_check!'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/cgi_process.rb:111:in `session'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/base.rb:1117:in `assign_shortcuts_without_flash'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/flash.rb:174:in `assign_shortcuts'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/base.rb:488:in `process_without_filters'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-08-25 23:41:13) [GET]
+  Session ID: 42c7584836a566b4627ee8f825f86132
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;36;1mTrial Load (0.035297)[0m   [0;1mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.27375 (3 reqs/sec) | Rendering: 0.04703 (17%) | DB: 0.03530 (12%) | 200 OK [http://localhost/trials]
+
+
+Processing TrialsController#new (for 127.0.0.1 at 2007-08-25 23:43:53) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"new", "controller"=>"trials"}
+Rendering template within layouts/trials
+Rendering trials/new
+Completed in 0.12808 (7 reqs/sec) | Rendering: 0.09811 (76%) | DB: 0.00000 (0%) | 200 OK [http://localhost/trials/new]
+
+
+Processing TrialsController#show (for 127.0.0.1 at 2007-08-25 23:44:11) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"trials"}
+  [4;35;1mTrial Load (0.001746)[0m   [0mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Trial with ID=1):
+    /vendor/rails/activerecord/lib/active_record/base.rb:1033:in `find_one'
+    /vendor/rails/activerecord/lib/active_record/base.rb:1016:in `find_from_ids'
+    /vendor/rails/activerecord/lib/active_record/base.rb:430:in `find'
+    /app/controllers/trials_controller.rb:16:in `show'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1140:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:695:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:687:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:133:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:668:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:105:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching.rb:667:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:494:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:683:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:122:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:346:in `process'
+    /vendor/rails/railties/lib/dispatcher.rb:39:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-08-25 23:45:06) [GET]
+  Session ID: e1951e23733afcf4600f9f1317e70a7d
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;36;1mTrial Load (0.013466)[0m   [0;1mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.07878 (12 reqs/sec) | Rendering: 0.03135 (39%) | DB: 0.01347 (17%) | 200 OK [http://www.example.com/trials]
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-08-25 23:47:44) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;35;1mTrial Load (0.002720)[0m   [0mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.04682 (21 reqs/sec) | Rendering: 0.01238 (26%) | DB: 0.00272 (5%) | 200 OK [http://www.example.com/trials]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-08-25 23:49:17) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/integration.rb:266:in `process'
+    /vendor/rails/actionpack/lib/action_controller/integration.rb:152:in `get'
+    (irb):10:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52:in `irb_binding'
+    :0
+
+
+Rendering /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-08-25 23:49:27) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/integration.rb:266:in `process'
+    /vendor/rails/actionpack/lib/action_controller/integration.rb:152:in `get'
+    (irb):11:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52:in `irb_binding'
+    :0
+
+
+Rendering /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-08-25 23:49:51) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/index" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/integration.rb:266:in `process'
+    /vendor/rails/actionpack/lib/action_controller/integration.rb:152:in `get'
+    (irb):15:in `irb_binding'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/irb/workspace.rb:52:in `irb_binding'
+    :0
+
+
+Rendering /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+  [4;36;1mTrial Load (0.002900)[0m   [0;1mSELECT * FROM trials [0m
+  [4;35;1mTrial Load (0.001210)[0m   [0mSELECT * FROM trials [0m
+  [4;36;1mTrial Load (0.001213)[0m   [0;1mSELECT * FROM trials [0m
+  [4;36;1mSQL (0.010075)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002987)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002135)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddColumnsToTrials (2)
+  [4;35;1mSQL (0.391182)[0m   [0mALTER TABLE trials ADD "name" varchar(255)[0m
+  [4;36;1mSQL (0.082313)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.005436)[0m   [0mALTER TABLE trials ADD "hours" integer[0m
+  [4;36;1mSQL (0.011948)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.005768)[0m   [0mALTER TABLE trials ADD "description" text[0m
+  [4;36;1mSQL (0.015888)[0m   [0;1mVACUUM[0m
+  [4;36;1mSQL (0.005815)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002170)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001537)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddColumnsToTrials (2)
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: duplicate column name: name: ALTER TABLE trials ADD "name" varchar(255)[0m
+  [4;36;1mSQL (0.005437)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.001849)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001640)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002224)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001592)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;35;1mSQL (0.012969)[0m   [0mDROP TABLE trials[0m
+  [4;36;1mSQL (0.003154)[0m   [0;1mUPDATE schema_info SET version = 0[0m
+  [4;35;1mSQL (0.002271)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.001755)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.006094)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001784)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.006815)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002718)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.001807)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddColumnsToTrials (2)
+  [4;35;1mSQL (0.003468)[0m   [0mALTER TABLE trials ADD "name" varchar(255)[0m
+  [4;36;1mSQL (0.010104)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.004524)[0m   [0mALTER TABLE trials ADD "hours" integer[0m
+  [4;36;1mSQL (0.008069)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003908)[0m   [0mALTER TABLE trials ADD "description" text[0m
+  [4;36;1mSQL (0.007837)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.051854)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.001745)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.002044)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000493)[0m   [0;1mPRAGMA index_list(trials)[0m
+
+
+Processing TrialsController#new (for 127.0.0.1 at 2007-08-26 00:16:30) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"new", "controller"=>"trials"}
+Rendering template within layouts/trials
+Rendering trials/new
+Completed in 0.16316 (6 reqs/sec) | Rendering: 0.02878 (17%) | DB: 0.00000 (0%) | 200 OK [http://localhost/trials/new]
+
+
+Processing TrialsController#new (for 127.0.0.1 at 2007-08-26 00:17:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"new", "controller"=>"trials"}
+Rendering template within layouts/trials
+Rendering trials/new
+Completed in 0.09734 (10 reqs/sec) | Rendering: 0.05235 (53%) | DB: 0.00000 (0%) | 200 OK [http://localhost/trials/new]
+  [4;36;1mSQL (0.005022)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mTrial Load (0.001283)[0m   [0;1mSELECT * FROM trials [0m
+  [4;35;1mSQL (0.005122)[0m   [0mINSERT INTO trials ("name", "updated_at", "description", "hours", "created_at") VALUES(NULL, '2007-08-26 00:25:37', NULL, NULL, '2007-08-26 00:25:37')[0m
+  [4;36;1mTrial Load (0.003332)[0m   [0;1mSELECT * FROM trials [0m
+  [4;35;1mTrial Load (0.003524)[0m   [0mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;36;1mTrial Load (0.003202)[0m   [0;1mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;35;1mTrial Update (0.003399)[0m   [0mUPDATE trials SET "created_at" = '2007-08-26 00:25:37', "name" = 'FORT', "description" = 'trial to see how 2# compares with 12# for radiotherapy of hodgekins lymphoma', "updated_at" = '2007-08-26 00:44:05', "hours" = 20 WHERE "id" = 1[0m
+  [4;36;1mSQL (0.028848)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002030)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001531)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002273)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMember (3)
+  [4;36;1mSQL (0.015153)[0m   [0;1mCREATE TABLE member ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003740)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.001673)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.002540)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000608)[0m   [0;1mPRAGMA index_list(member)[0m
+  [4;35;1mSQL (0.000822)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.005622)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002362)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001604)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001497)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002019)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;35;1mSQL (0.115242)[0m   [0mALTER TABLE trials ADD "membership_id" integer[0m
+  [4;36;1mSQL (0.012725)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.006365)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.002223)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.002242)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000646)[0m   [0;1mPRAGMA index_list(member)[0m
+  [4;35;1mSQL (0.000496)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.009953)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002542)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002002)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.003602)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;36;1mSQL (0.066315)[0m   [0;1mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "name" varchar(255) DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL, "membership_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000658)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.002293)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.002344)[0m   [0mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "name" varchar(255) DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000649)[0m   [0;1mPRAGMA index_list(altered_trials)[0m
+  [4;35;1mSQL (0.001122)[0m   [0mDROP TABLE altered_trials[0m
+  [4;36;1mSQL (0.003595)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.003043)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMember (3)
+  [4;36;1mSQL (0.004666)[0m   [0;1mDROP TABLE member[0m
+  [4;35;1mSQL (0.003820)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.001685)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddColumnsToTrials (2)
+  [4;35;1mSQL (0.003123)[0m   [0mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "name" varchar(255) DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000665)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;35;1mSQL (0.001726)[0m   [0mDROP TABLE trials[0m
+  [4;36;1mSQL (0.001367)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000494)[0m   [0mPRAGMA index_list(altered_trials)[0m
+  [4;36;1mSQL (0.000647)[0m   [0;1mDROP TABLE altered_trials[0m
+  [4;35;1mSQL (0.002158)[0m   [0mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;36;1mSQL (0.001008)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;35;1mSQL (0.001793)[0m   [0mDROP TABLE trials[0m
+  [4;36;1mSQL (0.001066)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000466)[0m   [0mPRAGMA index_list(altered_trials)[0m
+  [4;36;1mSQL (0.000703)[0m   [0;1mDROP TABLE altered_trials[0m
+  [4;35;1mSQL (0.002758)[0m   [0mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000484)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;35;1mSQL (0.001634)[0m   [0mDROP TABLE trials[0m
+  [4;36;1mSQL (0.002016)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000596)[0m   [0mPRAGMA index_list(altered_trials)[0m
+  [4;36;1mSQL (0.000676)[0m   [0;1mDROP TABLE altered_trials[0m
+  [4;35;1mSQL (0.002844)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.004731)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;35;1mSQL (0.003538)[0m   [0mDROP TABLE trials[0m
+  [4;36;1mSQL (0.143717)[0m   [0;1mUPDATE schema_info SET version = 0[0m
+  [4;35;1mSQL (0.002364)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.001676)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.006297)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001955)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.006775)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002723)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.002012)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddColumnsToTrials (2)
+  [4;35;1mSQL (0.003544)[0m   [0mALTER TABLE trials ADD "name" varchar(255)[0m
+  [4;36;1mSQL (0.010765)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.064594)[0m   [0mALTER TABLE trials ADD "hours" integer[0m
+  [4;36;1mSQL (0.008533)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003648)[0m   [0mALTER TABLE trials ADD "description" text[0m
+  [4;36;1mSQL (0.008238)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.010989)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.005831)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMember (3)
+  [4;35;1mSQL (0.003508)[0m   [0mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003179)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.001607)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;36;1mSQL (0.003725)[0m   [0;1mALTER TABLE trials ADD "membership_id" integer[0m
+  [4;35;1mSQL (0.009317)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003405)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.002767)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.002582)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000511)[0m   [0mPRAGMA index_list(members)[0m
+  [4;36;1mSQL (0.000468)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.005232)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001713)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001620)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001556)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001565)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001880)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (5)
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table members already exists: CREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.006313)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.001653)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001531)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002083)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002136)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;35;1mSQL (0.006916)[0m   [0mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "name" varchar(255) DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL, "membership_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000618)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;35;1mSQL (0.001889)[0m   [0mDROP TABLE trials[0m
+  [4;36;1mSQL (0.001750)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "name" varchar(255) DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000490)[0m   [0mPRAGMA index_list(altered_trials)[0m
+  [4;36;1mSQL (0.000807)[0m   [0;1mDROP TABLE altered_trials[0m
+  [4;35;1mSQL (0.003546)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.001874)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMember (3)
+  [4;35;1mSQL (0.004006)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.077721)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.002292)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddColumnsToTrials (2)
+  [4;36;1mSQL (0.002233)[0m   [0;1mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "name" varchar(255) DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000542)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.001797)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.001288)[0m   [0mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000502)[0m   [0;1mPRAGMA index_list(altered_trials)[0m
+  [4;35;1mSQL (0.001085)[0m   [0mDROP TABLE altered_trials[0m
+  [4;36;1mSQL (0.002215)[0m   [0;1mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "hours" integer DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000674)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.001467)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.001127)[0m   [0mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000455)[0m   [0;1mPRAGMA index_list(altered_trials)[0m
+  [4;35;1mSQL (0.000950)[0m   [0mDROP TABLE altered_trials[0m
+  [4;36;1mSQL (0.002252)[0m   [0;1mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "description" text DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000478)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.001498)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.001111)[0m   [0mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000480)[0m   [0;1mPRAGMA index_list(altered_trials)[0m
+  [4;35;1mSQL (0.000806)[0m   [0mDROP TABLE altered_trials[0m
+  [4;36;1mSQL (0.002699)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.001590)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.003645)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.003335)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.001799)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.002258)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.009234)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.004599)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.020058)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.126287)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.002134)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.016792)[0m   [0mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.016917)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.002234)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.006133)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003709)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.003114)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.003591)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000865)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.001439)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.000607)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.008580)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.001629)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001792)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001723)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.005182)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.003480)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.001653)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.004044)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.002499)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.002205)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.003004)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.045428)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.001764)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.001661)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.006464)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001753)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.007066)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002836)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.001610)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.003733)[0m   [0mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003630)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.087043)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.017643)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003801)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.001896)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.003257)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000552)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.000491)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.000750)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.013703)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001789)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001591)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002265)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001825)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;36;1mSQL (0.005762)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002093)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001720)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002207)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.005860)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;35;1mSQL (0.005611)[0m   [0mALTER TABLE trials ADD "membership_id" integer[0m
+  [4;36;1mSQL (0.012954)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003313)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.001814)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.003351)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000499)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.000576)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.000543)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.005316)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002276)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001619)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001589)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001850)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002030)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.003533)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000709)[0m   [0mPRAGMA index_list(members)[0m
+  [4;36;1mSQL (0.000483)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.000503)[0m   [0mPRAGMA index_list(trials)[0m
+
+
+Processing TrialsController#new (for 127.0.0.1 at 2007-08-26 01:24:46) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"new", "controller"=>"trials"}
+Rendering template within layouts/trials
+Rendering trials/new
+Completed in 0.09580 (10 reqs/sec) | Rendering: 0.02399 (25%) | DB: 0.00000 (0%) | 200 OK [http://localhost/trials/new]
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-08-26 01:24:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;36;1mTrial Load (0.001713)[0m   [0;1mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.05038 (19 reqs/sec) | Rendering: 0.01561 (30%) | DB: 0.00171 (3%) | 200 OK [http://localhost/trials/]
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-08-26 01:26:11) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;35;1mTrial Load (0.001908)[0m   [0mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.08380 (11 reqs/sec) | Rendering: 0.00969 (11%) | DB: 0.00191 (2%) | 200 OK [http://localhost/]
+
+
+Processing TrialsController#new (for 127.0.0.1 at 2007-08-26 01:26:21) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"new", "controller"=>"trials"}
+Rendering template within layouts/trials
+Rendering trials/new
+Completed in 0.08384 (11 reqs/sec) | Rendering: 0.01386 (16%) | DB: 0.00000 (0%) | 200 OK [http://localhost/trials/new]
+
+
+Processing TrialsController#new (for 127.0.0.1 at 2007-08-26 01:26:26) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"new", "controller"=>"trials"}
+Rendering template within layouts/trials
+Rendering trials/new
+Completed in 0.05492 (18 reqs/sec) | Rendering: 0.01944 (35%) | DB: 0.00000 (0%) | 200 OK [http://localhost/trials/new]
+
+
+Processing MembersController#index (for 127.0.0.1 at 2007-08-26 01:26:36) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"members"}
+  [4;36;1mMember Load (0.001955)[0m   [0;1mSELECT * FROM members [0m
+Rendering template within layouts/members
+Rendering members/index
+Completed in 0.07383 (13 reqs/sec) | Rendering: 0.03261 (44%) | DB: 0.00196 (2%) | 200 OK [http://localhost/members]
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-08-26 01:26:45) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;35;1mTrial Load (0.002915)[0m   [0mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.07207 (13 reqs/sec) | Rendering: 0.01875 (26%) | DB: 0.00291 (4%) | 200 OK [http://localhost/trials]
+
+
+Processing MembershipsController#index (for 127.0.0.1 at 2007-08-26 01:27:25) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"memberships"}
+  [4;36;1mMembership Load (0.002533)[0m   [0;1mSELECT * FROM memberships [0m
+Rendering template within layouts/memberships
+Rendering memberships/index
+Completed in 0.12018 (8 reqs/sec) | Rendering: 0.05975 (49%) | DB: 0.00253 (2%) | 200 OK [http://localhost/memberships]
+  [4;36;1mSQL (0.472889)[0m   [0;1mINSERT INTO members ("name", "updated_at", "membership_id", "created_at") VALUES('Chris', '2007-08-26 01:35:04', NULL, '2007-08-26 01:35:04')[0m
+  [4;35;1mMember Load (0.003229)[0m   [0mSELECT * FROM members [0m
+  [4;36;1mTrial Load (0.001324)[0m   [0;1mSELECT * FROM trials [0m
+  [4;35;1mSQL (0.004111)[0m   [0mINSERT INTO trials ("name", "updated_at", "membership_id", "description", "hours", "created_at") VALUES('FORT', '2007-08-26 01:38:00', NULL, 'canny trial this one', 20.0, '2007-08-26 01:38:00')[0m
+  [4;36;1mTrial Load (0.003768)[0m   [0;1mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;36;1mMember Load (0.003897)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;35;1mTrial Load (0.003936)[0m   [0mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;36;1mSQL (0.005842)[0m   [0;1mINSERT INTO memberships ("updated_at", "member_id", "trial_id", "created_at") VALUES('2007-08-26 01:42:46', 1, 1, '2007-08-26 01:42:46')[0m
+  [4;35;1mMember Load (0.002916)[0m   [0mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;36;1mTrial Load (0.004108)[0m   [0;1mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;35;1mTrial Load (0.003244)[0m   [0mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;36;1mMembership Load (0.000000)[0m   [0;1mSQLite3::SQLException: no such column: memberships.membership_id: SELECT * FROM memberships WHERE (memberships.membership_id = 1) [0m
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-08-26 10:30:10) [GET]
+  Session ID: 5e27d42f03f8c4cee67aaf1d06506e60
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;36;1mTrial Load (0.040570)[0m   [0;1mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.28184 (3 reqs/sec) | Rendering: 0.13641 (48%) | DB: 0.04057 (14%) | 200 OK [http://localhost/]
+
+
+Processing TrialsController#new (for 127.0.0.1 at 2007-08-26 10:30:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"new", "controller"=>"trials"}
+Rendering template within layouts/trials
+Rendering trials/new
+Completed in 0.12884 (7 reqs/sec) | Rendering: 0.05606 (43%) | DB: 0.00000 (0%) | 200 OK [http://localhost/trials/new]
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-08-26 10:31:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;35;1mTrial Load (0.004028)[0m   [0mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.07315 (13 reqs/sec) | Rendering: 0.03219 (44%) | DB: 0.00403 (5%) | 200 OK [http://localhost/trials]
+  [4;36;1mTrial Load (0.016179)[0m   [0;1mSELECT * FROM trials [0m
+DEPRECATION WARNING: add_members is deprecated and will be removed from Rails 2.0 (use members.concat instead)  See http://www.rubyonrails.org/deprecation for details. (called from irb_binding at (irb):6)
+
+
+Processing MembershipsController#index (for 127.0.0.1 at 2007-08-26 10:43:44) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"memberships"}
+  [4;36;1mMembership Load (0.004279)[0m   [0;1mSELECT * FROM memberships [0m
+Rendering template within layouts/memberships
+Rendering memberships/index
+Completed in 0.17002 (5 reqs/sec) | Rendering: 0.10714 (63%) | DB: 0.00428 (2%) | 200 OK [http://localhost/memberships]
+
+
+Processing MembersController#index (for 127.0.0.1 at 2007-08-26 10:44:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"members"}
+  [4;35;1mMember Load (0.004933)[0m   [0mSELECT * FROM members [0m
+Rendering template within layouts/members
+Rendering members/index
+Completed in 0.21867 (4 reqs/sec) | Rendering: 0.14031 (64%) | DB: 0.00493 (2%) | 200 OK [http://localhost/members]
+
+
+Processing MembersController#show (for 127.0.0.1 at 2007-08-26 11:00:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"members"}
+  [4;36;1mMember Load (0.015853)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 1) [0m
+Rendering template within layouts/members
+Rendering members/show
+Completed in 0.26731 (3 reqs/sec) | Rendering: 0.12256 (45%) | DB: 0.01585 (5%) | 200 OK [http://localhost/members/1]
+
+
+Processing MembersController#index (for 127.0.0.1 at 2007-08-26 11:00:52) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"members"}
+  [4;35;1mMember Load (0.002952)[0m   [0mSELECT * FROM members [0m
+Rendering template within layouts/members
+Rendering members/index
+Completed in 0.09259 (10 reqs/sec) | Rendering: 0.05593 (60%) | DB: 0.00295 (3%) | 200 OK [http://localhost/members]
+  [4;35;1mSQL (0.124853)[0m   [0mINSERT INTO trials ("name", "updated_at", "membership_id", "description", "hours", "created_at") VALUES('BUM', '2007-08-27 17:56:28', NULL, 'arse wipe', 2.0, '2007-08-27 17:56:28')[0m
+  [4;36;1mTrial Load (0.004860)[0m   [0;1mSELECT * FROM trials WHERE (trials."name" = 'BUM') LIMIT 1[0m
+  [4;36;1mSQL (0.012017)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002527)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.013185)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002633)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002700)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.003664)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;36;1mSQL (0.142472)[0m   [0;1mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.223844)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.002137)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;35;1mSQL (0.541841)[0m   [0mALTER TABLE members ADD "supervisor_id" integer[0m
+  [4;36;1mSQL (0.408562)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.006705)[0m   [0mUPDATE schema_info SET version = 6[0m
+  [4;36;1mSQL (0.003388)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.005843)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000718)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.001557)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.000798)[0m   [0;1mPRAGMA index_list(supervisors)[0m
+  [4;35;1mSQL (0.000730)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.006636)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.001753)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001543)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001705)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;36;1mSQL (0.011392)[0m   [0;1mCREATE TEMPORARY TABLE altered_members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "supervisor_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000500)[0m   [0mPRAGMA index_list(members)[0m
+  [4;36;1mSQL (0.001899)[0m   [0;1mDROP TABLE members[0m
+  [4;35;1mSQL (0.003328)[0m   [0mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000575)[0m   [0;1mPRAGMA index_list(altered_members)[0m
+  [4;35;1mSQL (0.000680)[0m   [0mDROP TABLE altered_members[0m
+  [4;36;1mSQL (0.107327)[0m   [0;1mUPDATE schema_info SET version = 5[0m
+  [4;35;1mSQL (0.002786)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;36;1mSQL (0.059901)[0m   [0;1mDROP TABLE supervisors[0m
+  [4;35;1mSQL (0.005130)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.001647)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;35;1mSQL (0.002995)[0m   [0mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "membership_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000501)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;35;1mSQL (0.001959)[0m   [0mDROP TABLE trials[0m
+  [4;36;1mSQL (0.001372)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000490)[0m   [0mPRAGMA index_list(altered_trials)[0m
+  [4;36;1mSQL (0.001131)[0m   [0;1mDROP TABLE altered_trials[0m
+  [4;35;1mSQL (0.003674)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.001669)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;35;1mSQL (0.004754)[0m   [0mDROP TABLE memberships[0m
+  [4;36;1mSQL (0.003396)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.090187)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;36;1mSQL (0.005176)[0m   [0;1mDROP TABLE members[0m
+  [4;35;1mSQL (0.003216)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.001655)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;35;1mSQL (0.060956)[0m   [0mDROP TABLE trials[0m
+  [4;36;1mSQL (0.028407)[0m   [0;1mUPDATE schema_info SET version = 0[0m
+  [4;35;1mSQL (0.013845)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.001721)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.011781)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002789)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.450461)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003589)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.091261)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.141078)[0m   [0mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.004316)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.090209)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.006851)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003922)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.002211)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;35;1mSQL (0.164050)[0m   [0mALTER TABLE trials ADD "membership_id" integer[0m
+  [4;36;1mSQL (0.023815)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.006241)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.002174)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;35;1mSQL (0.128812)[0m   [0mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.005572)[0m   [0;1mUPDATE schema_info SET version = 5[0m
+  [4;35;1mSQL (0.002125)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;36;1mSQL (0.006306)[0m   [0;1mALTER TABLE members ADD "supervisor_id" integer[0m
+  [4;35;1mSQL (0.074655)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.006035)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.001812)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.046118)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000604)[0m   [0mPRAGMA index_list(members)[0m
+  [4;36;1mSQL (0.000492)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.000544)[0m   [0mPRAGMA index_list(supervisors)[0m
+  [4;36;1mSQL (0.000517)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mTrial Load (0.015763)[0m   [0;1mSELECT * FROM trials [0m
+  [4;35;1mSQL (0.005405)[0m   [0mINSERT INTO members ("name", "updated_at", "membership_id", "supervisor_id", "created_at") VALUES('chris', '2007-08-27 18:24:31', 1, 1, '2007-08-27 18:24:31')[0m
+  [4;36;1mSQL (0.084088)[0m   [0;1mINSERT INTO supervisors ("name", "updated_at", "title", "created_at") VALUES('Big-Wig', '2007-08-27 18:25:32', 'prof', '2007-08-27 18:25:32')[0m
+  [4;35;1mMember Load (0.004611)[0m   [0mSELECT * FROM members WHERE (members.supervisor_id = 1) [0m
+  [4;36;1mSupervisor Load (0.003417)[0m   [0;1mSELECT * FROM supervisors WHERE (supervisors."id" = 1) [0m
+  [4;35;1mMembership Load (0.001348)[0m   [0mSELECT * FROM memberships [0m
+  [4;36;1mSQL (0.005281)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mTrial Load (0.001338)[0m   [0mSELECT * FROM trials [0m
+  [4;36;1mSQL (0.003885)[0m   [0;1mINSERT INTO trials ("name", "updated_at", "membership_id", "description", "hours", "created_at") VALUES('FORT', '2007-08-27 18:29:29', 1, 'brill trial', 20.0, '2007-08-27 18:29:29')[0m
+  [4;35;1mSQL (0.002728)[0m   [0mINSERT INTO memberships ("updated_at", "member_id", "trial_id", "created_at") VALUES('2007-08-27 18:30:11', 1, 1, '2007-08-27 18:30:11')[0m
+  [4;36;1mMembership Load (0.000000)[0m   [0;1mSQLite3::SQLException: no such column: memberships.membership_id: SELECT * FROM memberships WHERE (memberships.membership_id = 1) [0m
+  [4;35;1mSupervisor Load (0.009855)[0m   [0mSELECT * FROM supervisors WHERE (supervisors."id" = 1) [0m
+  [4;36;1mMember Load (0.003825)[0m   [0;1mSELECT * FROM members WHERE (members.supervisor_id = 1) [0m
+  [4;35;1mSQL (0.002849)[0m   [0mSELECT count(*) AS count_all FROM members WHERE (members.supervisor_id = 1) [0m
+  [4;36;1mSQL (0.002913)[0m   [0;1mINSERT INTO members ("name", "updated_at", "membership_id", "supervisor_id", "created_at") VALUES('cookie', '2007-08-27 18:37:48', 1, 1, '2007-08-27 18:37:48')[0m
+  [4;36;1mSupervisor Load (0.017316)[0m   [0;1mSELECT * FROM supervisors [0m
+  [4;35;1mSQL (0.003065)[0m   [0mSELECT count(*) AS count_all FROM members WHERE (members.supervisor_id = 1) [0m
+  [4;36;1mSQL (0.014045)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001717)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002921)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002283)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001714)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001932)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001641)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001582)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembersCountToSupervisors (7)
+  [4;36;1mSQL (0.026310)[0m   [0;1mALTER TABLE supervisors ADD "members_count" integer[0m
+  [4;35;1mSQL (0.212459)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.007370)[0m   [0;1mUPDATE schema_info SET version = 7[0m
+  [4;35;1mSQL (0.002210)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.007626)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000721)[0m   [0mPRAGMA index_list(members)[0m
+  [4;36;1mSQL (0.001772)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.000733)[0m   [0mPRAGMA index_list(supervisors)[0m
+  [4;36;1mSQL (0.000731)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mSupervisor Load (0.011950)[0m   [0;1mSELECT * FROM supervisors [0m
+  [4;35;1mSQL (0.002625)[0m   [0mSELECT count(*) AS count_all FROM members WHERE (members.supervisor_id = 1) [0m
+  [4;36;1mSQL (0.030302)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.003329)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002230)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.004049)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002534)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.003914)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.003461)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002439)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.003049)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.009617)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000752)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.002353)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.000703)[0m   [0;1mPRAGMA index_list(supervisors)[0m
+  [4;35;1mSQL (0.000747)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSupervisor Load (0.005237)[0m   [0;1mSELECT * FROM supervisors LIMIT 1[0m
+  [4;35;1mSQL (0.005455)[0m   [0mINSERT INTO supervisors ("name", "updated_at", "members_count", "title", "created_at") VALUES('bigbollocks', '2007-08-27 19:16:35', NULL, 'sir', '2007-08-27 19:16:35')[0m
+  [4;36;1mMember Load (0.002263)[0m   [0;1mSELECT * FROM members WHERE (members.supervisor_id = 2) [0m
+  [4;35;1mSQL (0.003846)[0m   [0mINSERT INTO members ("name", "updated_at", "membership_id", "supervisor_id", "created_at") VALUES('Percy', '2007-08-27 19:18:29', NULL, 2, '2007-08-27 19:18:29')[0m
+  [4;36;1mSupervisor Load (0.003979)[0m   [0;1mSELECT * FROM supervisors WHERE (supervisors."id" = 2) [0m
+  [4;35;1mSupervisor Update (0.002719)[0m   [0mUPDATE supervisors SET "members_count" = "members_count" + 1 WHERE ("id" = 2) [0m
+  [4;36;1mMembership Load (0.023994)[0m   [0;1mSELECT * FROM memberships [0m
+  [4;35;1mMember Load (0.003324)[0m   [0mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;36;1mMember Load (0.004276)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;35;1mTrial Load (0.000000)[0m   [0mSQLite3::SQLException: no such column: memberships.membership_id: SELECT trials.* FROM trials INNER JOIN memberships ON trials.id = memberships.trial_id WHERE ((memberships.membership_id = 1)) [0m
+  [4;36;1mTrial Load (0.018079)[0m   [0;1mSELECT * FROM trials LIMIT 1[0m
+  [4;35;1mMembership Load (0.003641)[0m   [0mSELECT * FROM memberships WHERE (memberships.trial_id = 1) [0m
+  [4;36;1mMember Load (0.097075)[0m   [0;1mSELECT * FROM members WHERE (members."id" IN (1,2,3)) [0m
+  [4;35;1mMember Load (0.129304)[0m   [0mSELECT * FROM members WHERE (members."id" = '--- !ruby/range 
+begin: 1
+end: 2
+excl: false
+') [0m
+  [4;36;1mMember Load (0.007710)[0m   [0;1mSELECT * FROM members WHERE (members."id" IN (1,3)) [0m
+  [4;35;1mMember Load (0.003465)[0m   [0mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;36;1mMember Load (0.003983)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;36;1mTrial Load (0.004635)[0m   [0;1mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;35;1mMember Load (0.003964)[0m   [0mSELECT members.* FROM members INNER JOIN memberships ON members.id = memberships.member_id WHERE ((memberships.trial_id = 1)) [0m
+  [4;36;1mMember Load (0.003290)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;35;1mMembership Load (0.004089)[0m   [0mSELECT * FROM memberships WHERE (memberships.member_id = 1) [0m
+  [4;36;1mTrial Load (0.004200)[0m   [0;1mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;36;1mTrial Load (0.002417)[0m   [0;1mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;35;1mMember Load (0.003864)[0m   [0mSELECT members.* FROM members INNER JOIN memberships ON members.id = memberships.member_id WHERE ((memberships.trial_id = 1)) [0m
+  [4;36;1mMember Load (0.005541)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;35;1mTrial Load (0.005401)[0m   [0mSELECT trials.* FROM trials INNER JOIN memberships ON trials.id = memberships.trial_id WHERE ((memberships.member_id = 1)) [0m
+  [4;36;1mMember Load (0.005769)[0m   [0;1mSELECT * FROM members [0m
+  [4;35;1mTrial Load (0.001551)[0m   [0mSELECT * FROM trials WHERE (trials."id" = 2) [0m
+  [4;36;1mTrial Load (0.003800)[0m   [0;1mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;35;1mMember Load (0.004191)[0m   [0mSELECT members.* FROM members INNER JOIN memberships ON members.id = memberships.member_id WHERE ((memberships.trial_id = 1)) [0m
+  [4;36;1mMember Load (0.003860)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 3) [0m
+  [4;35;1mSQL (0.004865)[0m   [0mINSERT INTO memberships ("updated_at", "member_id", "trial_id", "created_at") VALUES('2007-08-27 20:16:56', 3, 1, '2007-08-27 20:16:56')[0m
+  [4;36;1mMember Load (0.004005)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 3) [0m
+  [4;35;1mTrial Load (0.003568)[0m   [0mSELECT trials.* FROM trials INNER JOIN memberships ON trials.id = memberships.trial_id WHERE ((memberships.member_id = 3)) [0m
+  [4;36;1mSQL (0.009979)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002173)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002333)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.003350)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.004041)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002873)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002162)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002953)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002083)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;35;1mSQL (0.154328)[0m   [0mCREATE TABLE projects ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003985)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.002143)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMemberships (9)
+  [4;36;1mSQL (0.005029)[0m   [0;1mCREATE TEMPORARY TABLE altered_memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000582)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.001886)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.001127)[0m   [0mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000512)[0m   [0;1mPRAGMA index_list(altered_memberships)[0m
+  [4;35;1mSQL (0.000738)[0m   [0mDROP TABLE altered_memberships[0m
+  [4;36;1mSQL (0.004464)[0m   [0;1mUPDATE schema_info SET version = 9[0m
+  [4;35;1mSQL (0.002549)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.005362)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000524)[0m   [0mPRAGMA index_list(members)[0m
+  [4;36;1mSQL (0.000490)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.000522)[0m   [0mPRAGMA index_list(projects)[0m
+  [4;36;1mSQL (0.000986)[0m   [0;1mPRAGMA index_list(supervisors)[0m
+  [4;35;1mSQL (0.000616)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.007461)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.003186)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.004460)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001977)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMemberships (9)
+  [4;36;1mSQL (0.009907)[0m   [0;1mALTER TABLE memberships ADD "trials_id" integer[0m
+  [4;35;1mSQL (0.016120)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.058475)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.001766)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;36;1mSQL (0.005554)[0m   [0;1mDROP TABLE projects[0m
+  [4;35;1mSQL (0.003750)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.001838)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembersCountToSupervisors (7)
+  [4;35;1mSQL (0.004768)[0m   [0mCREATE TEMPORARY TABLE altered_supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "members_count" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000493)[0m   [0;1mPRAGMA index_list(supervisors)[0m
+  [4;35;1mSQL (0.002713)[0m   [0mDROP TABLE supervisors[0m
+  [4;36;1mSQL (0.002172)[0m   [0;1mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000625)[0m   [0mPRAGMA index_list(altered_supervisors)[0m
+  [4;36;1mSQL (0.000806)[0m   [0;1mDROP TABLE altered_supervisors[0m
+  [4;35;1mSQL (0.044505)[0m   [0mUPDATE schema_info SET version = 6[0m
+  [4;36;1mSQL (0.001681)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;35;1mSQL (0.002707)[0m   [0mCREATE TEMPORARY TABLE altered_members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "supervisor_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000491)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.003465)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.002791)[0m   [0;1mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000631)[0m   [0mPRAGMA index_list(altered_members)[0m
+  [4;36;1mSQL (0.003339)[0m   [0;1mDROP TABLE altered_members[0m
+  [4;35;1mSQL (0.004113)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.002290)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;35;1mSQL (0.088590)[0m   [0mDROP TABLE supervisors[0m
+  [4;36;1mSQL (0.122935)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.003422)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;36;1mSQL (0.002708)[0m   [0;1mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "membership_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.001076)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.003219)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.001317)[0m   [0mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000764)[0m   [0;1mPRAGMA index_list(altered_trials)[0m
+  [4;35;1mSQL (0.000772)[0m   [0mDROP TABLE altered_trials[0m
+  [4;36;1mSQL (0.003840)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.001980)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.057342)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.004315)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.001679)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.057873)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.003826)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.002719)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.003972)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.004151)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.001719)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.002959)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.005992)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.003251)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.008782)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.056317)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.009500)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.004984)[0m   [0mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003606)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.001649)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.005497)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.063493)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.015389)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;35;1mSQL (0.005095)[0m   [0mALTER TABLE trials ADD "membership_id" integer[0m
+  [4;36;1mSQL (0.089943)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003782)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.002687)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;35;1mSQL (0.018964)[0m   [0mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.004431)[0m   [0;1mUPDATE schema_info SET version = 5[0m
+  [4;35;1mSQL (0.002375)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;36;1mSQL (0.004115)[0m   [0;1mALTER TABLE members ADD "supervisor_id" integer[0m
+  [4;35;1mSQL (0.068075)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.004347)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.001798)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembersCountToSupervisors (7)
+  [4;36;1mSQL (0.005812)[0m   [0;1mALTER TABLE supervisors ADD "members_count" integer[0m
+  [4;35;1mSQL (0.013344)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.004203)[0m   [0;1mUPDATE schema_info SET version = 7[0m
+  [4;35;1mSQL (0.001722)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;36;1mSQL (0.006033)[0m   [0;1mCREATE TABLE projects ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003370)[0m   [0mUPDATE schema_info SET version = 8[0m
+  [4;36;1mSQL (0.001619)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMemberships (9)
+  [4;35;1mSQL (0.016901)[0m   [0mCREATE TEMPORARY TABLE altered_memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000507)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.001846)[0m   [0mDROP TABLE memberships[0m
+  [4;36;1mSQL (0.001274)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.001020)[0m   [0mPRAGMA index_list(altered_memberships)[0m
+  [4;36;1mSQL (0.046713)[0m   [0;1mDROP TABLE altered_memberships[0m
+  [4;35;1mSQL (0.055295)[0m   [0mUPDATE schema_info SET version = 9[0m
+  [4;36;1mSQL (0.001664)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.004628)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000518)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.001204)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.000500)[0m   [0;1mPRAGMA index_list(projects)[0m
+  [4;35;1mSQL (0.000520)[0m   [0mPRAGMA index_list(supervisors)[0m
+  [4;36;1mSQL (0.000512)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.006564)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002568)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001724)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002082)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMemberships (9)
+  [4;36;1mSQL (0.007070)[0m   [0;1mALTER TABLE memberships ADD "trials_id" integer[0m
+  [4;35;1mSQL (0.016423)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.004977)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.002480)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProjects (8)
+  [4;36;1mSQL (0.004807)[0m   [0;1mDROP TABLE projects[0m
+  [4;35;1mSQL (0.002761)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.003092)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembersCountToSupervisors (7)
+  [4;35;1mSQL (0.004396)[0m   [0mCREATE TEMPORARY TABLE altered_supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "members_count" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000504)[0m   [0;1mPRAGMA index_list(supervisors)[0m
+  [4;35;1mSQL (0.002287)[0m   [0mDROP TABLE supervisors[0m
+  [4;36;1mSQL (0.001488)[0m   [0;1mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000510)[0m   [0mPRAGMA index_list(altered_supervisors)[0m
+  [4;36;1mSQL (0.000788)[0m   [0;1mDROP TABLE altered_supervisors[0m
+  [4;35;1mSQL (0.007213)[0m   [0mUPDATE schema_info SET version = 6[0m
+  [4;36;1mSQL (0.001842)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;35;1mSQL (0.004415)[0m   [0mCREATE TEMPORARY TABLE altered_members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "supervisor_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000491)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.001585)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.001291)[0m   [0;1mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000483)[0m   [0mPRAGMA index_list(altered_members)[0m
+  [4;36;1mSQL (0.000807)[0m   [0;1mDROP TABLE altered_members[0m
+  [4;35;1mSQL (0.002723)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.010521)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;35;1mSQL (0.062077)[0m   [0mDROP TABLE supervisors[0m
+  [4;36;1mSQL (0.006223)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.003180)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;36;1mSQL (0.003041)[0m   [0;1mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "membership_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000521)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.002956)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.001439)[0m   [0mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000804)[0m   [0;1mPRAGMA index_list(altered_trials)[0m
+  [4;35;1mSQL (0.001807)[0m   [0mDROP TABLE altered_trials[0m
+  [4;36;1mSQL (0.002733)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.003087)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.003984)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.004873)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.001726)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.004404)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.057848)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.001670)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.005259)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.003654)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.002583)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.002801)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.008096)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.005842)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.013735)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.022370)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.003312)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.003402)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.003416)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002774)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.004237)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.015085)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002210)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.101061)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003561)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.002404)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.005176)[0m   [0mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003981)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.002652)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.005767)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.112777)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.004325)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;35;1mSQL (0.038297)[0m   [0mALTER TABLE trials ADD "membership_id" integer[0m
+  [4;36;1mSQL (0.043071)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.007449)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.002753)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;35;1mSQL (0.005667)[0m   [0mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.106053)[0m   [0;1mUPDATE schema_info SET version = 5[0m
+  [4;35;1mSQL (0.001775)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;36;1mSQL (0.003778)[0m   [0;1mALTER TABLE members ADD "supervisor_id" integer[0m
+  [4;35;1mSQL (0.082247)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.005406)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.001769)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembersCountToSupervisors (7)
+  [4;36;1mSQL (0.004896)[0m   [0;1mALTER TABLE supervisors ADD "members_count" integer[0m
+  [4;35;1mSQL (0.013375)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.004121)[0m   [0;1mUPDATE schema_info SET version = 7[0m
+  [4;35;1mSQL (0.051812)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.002987)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000569)[0m   [0mPRAGMA index_list(members)[0m
+  [4;36;1mSQL (0.000633)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.000533)[0m   [0mPRAGMA index_list(supervisors)[0m
+  [4;36;1mSQL (0.000526)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.008064)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002218)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001608)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.003256)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001872)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002351)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001675)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001590)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001790)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateExperiments (8)
+  [4;35;1mSQL (0.008853)[0m   [0mCREATE TABLE experiments ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003509)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.002889)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.003726)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.055098)[0m   [0mPRAGMA index_list(experiments)[0m
+  [4;36;1mSQL (0.000607)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.000475)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.000453)[0m   [0;1mPRAGMA index_list(supervisors)[0m
+  [4;35;1mSQL (0.001668)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.006466)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002590)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001564)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001774)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001597)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001578)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001655)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.029680)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.002072)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001518)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMembershipsAndAddProjectsIdToMemberships (9)
+  [4;36;1mSQL (0.006324)[0m   [0;1mCREATE TEMPORARY TABLE altered_memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000472)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.001914)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.001251)[0m   [0mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000501)[0m   [0;1mPRAGMA index_list(altered_memberships)[0m
+  [4;35;1mSQL (0.001586)[0m   [0mDROP TABLE altered_memberships[0m
+  [4;36;1mSQL (0.003928)[0m   [0;1mALTER TABLE memberships ADD "projects_id" integer[0m
+  [4;35;1mSQL (0.117614)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.006603)[0m   [0;1mALTER TABLE memberships ADD "project_type" varchar(255)[0m
+  [4;35;1mSQL (0.014535)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003956)[0m   [0;1mUPDATE schema_info SET version = 9[0m
+  [4;35;1mSQL (0.003102)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.012148)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000660)[0m   [0mPRAGMA index_list(experiments)[0m
+  [4;36;1mSQL (0.000587)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.000475)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.000493)[0m   [0;1mPRAGMA index_list(supervisors)[0m
+  [4;35;1mSQL (0.000472)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mMember Load (0.035062)[0m   [0;1mSELECT * FROM members [0m
+  [4;35;1mSQL (0.085015)[0m   [0mINSERT INTO members ("name", "updated_at", "membership_id", "supervisor_id", "created_at") VALUES(NULL, '2007-08-27 21:46:28', NULL, NULL, '2007-08-27 21:46:28')[0m
+  [4;36;1mMember Load (0.005289)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;35;1mMember Destroy (0.002490)[0m   [0m DELETE FROM members
+ WHERE "id" = 1
+[0m
+  [4;36;1mMember Load (0.080999)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;36;1mSQL (0.018197)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002296)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002864)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.010692)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002538)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.004211)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.010217)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002232)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002947)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002189)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMembershipsAndAddProjectsIdToMemberships (9)
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: duplicate column name: trial_id: ALTER TABLE memberships ADD "trial_id" integer[0m
+  [4;36;1mSQL (0.011236)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002315)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.002318)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002812)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMembershipsAndAddProjectsIdToMemberships (9)
+  [4;36;1mSQL (0.032041)[0m   [0;1mALTER TABLE memberships ADD "trials_id" integer[0m
+  [4;35;1mSQL (0.123503)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.005576)[0m   [0;1mCREATE TEMPORARY TABLE altered_memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "projects_id" integer DEFAULT NULL, "project_type" varchar(255) DEFAULT NULL, "trials_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000676)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.004490)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.001723)[0m   [0mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "projects_id" integer DEFAULT NULL, "project_type" varchar(255) DEFAULT NULL, "trials_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000773)[0m   [0;1mPRAGMA index_list(altered_memberships)[0m
+  [4;35;1mSQL (0.001173)[0m   [0mDROP TABLE altered_memberships[0m
+  [4;36;1mSQL (0.003805)[0m   [0;1mCREATE TEMPORARY TABLE altered_memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "projects_id" integer DEFAULT NULL, "project_type" varchar(255) DEFAULT NULL, "trials_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.001818)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.001581)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.002287)[0m   [0mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "projects_id" integer DEFAULT NULL, "trials_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000552)[0m   [0;1mPRAGMA index_list(altered_memberships)[0m
+  [4;35;1mSQL (0.000911)[0m   [0mDROP TABLE altered_memberships[0m
+  [4;36;1mSQL (0.002983)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.001926)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateExperiments (8)
+  [4;36;1mSQL (0.003882)[0m   [0;1mDROP TABLE experiments[0m
+  [4;35;1mSQL (0.102399)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.001695)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembersCountToSupervisors (7)
+  [4;35;1mSQL (0.003675)[0m   [0mCREATE TEMPORARY TABLE altered_supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "members_count" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000517)[0m   [0;1mPRAGMA index_list(supervisors)[0m
+  [4;35;1mSQL (0.003397)[0m   [0mDROP TABLE supervisors[0m
+  [4;36;1mSQL (0.001311)[0m   [0;1mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000493)[0m   [0mPRAGMA index_list(altered_supervisors)[0m
+  [4;36;1mSQL (0.000804)[0m   [0;1mDROP TABLE altered_supervisors[0m
+  [4;35;1mSQL (0.003532)[0m   [0mUPDATE schema_info SET version = 6[0m
+  [4;36;1mSQL (0.002034)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;35;1mSQL (0.022640)[0m   [0mCREATE TEMPORARY TABLE altered_members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "supervisor_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000593)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.001612)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.001273)[0m   [0;1mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000465)[0m   [0mPRAGMA index_list(altered_members)[0m
+  [4;36;1mSQL (0.000834)[0m   [0;1mDROP TABLE altered_members[0m
+  [4;35;1mSQL (0.003633)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.001655)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;35;1mSQL (0.004550)[0m   [0mDROP TABLE supervisors[0m
+  [4;36;1mSQL (0.055215)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.002602)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;36;1mSQL (0.002635)[0m   [0;1mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "membership_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000476)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.002621)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.001373)[0m   [0mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000470)[0m   [0;1mPRAGMA index_list(altered_trials)[0m
+  [4;35;1mSQL (0.000889)[0m   [0mDROP TABLE altered_trials[0m
+  [4;36;1mSQL (0.002806)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.001774)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.005194)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.002822)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.001620)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.003500)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.004061)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.001998)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.084391)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.003076)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.001895)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.002409)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.006286)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.003324)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.006594)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003678)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.001936)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.004466)[0m   [0mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003214)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.003107)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.005341)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003811)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.021239)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;35;1mSQL (0.073332)[0m   [0mALTER TABLE trials ADD "membership_id" integer[0m
+  [4;36;1mSQL (0.013687)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003826)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.001609)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;35;1mSQL (0.011112)[0m   [0mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.017001)[0m   [0;1mUPDATE schema_info SET version = 5[0m
+  [4;35;1mSQL (0.002233)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;36;1mSQL (0.004644)[0m   [0;1mALTER TABLE members ADD "supervisor_id" integer[0m
+  [4;35;1mSQL (0.012212)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.004880)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.001605)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembersCountToSupervisors (7)
+  [4;36;1mSQL (0.004340)[0m   [0;1mALTER TABLE supervisors ADD "members_count" integer[0m
+  [4;35;1mSQL (0.013966)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.005457)[0m   [0;1mUPDATE schema_info SET version = 7[0m
+  [4;35;1mSQL (0.038865)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateExperiments (8)
+  [4;36;1mSQL (0.006382)[0m   [0;1mCREATE TABLE experiments ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002725)[0m   [0mUPDATE schema_info SET version = 8[0m
+  [4;36;1mSQL (0.002112)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMembershipsAndAddProjectsIdToMemberships (9)
+  [4;35;1mSQL (0.014928)[0m   [0mCREATE TEMPORARY TABLE altered_memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.001242)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.002168)[0m   [0mDROP TABLE memberships[0m
+  [4;36;1mSQL (0.001123)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000502)[0m   [0mPRAGMA index_list(altered_memberships)[0m
+  [4;36;1mSQL (0.000750)[0m   [0;1mDROP TABLE altered_memberships[0m
+  [4;35;1mSQL (0.003569)[0m   [0mALTER TABLE memberships ADD "project_id" integer[0m
+  [4;36;1mSQL (0.062867)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.006181)[0m   [0mALTER TABLE memberships ADD "project_type" varchar(255)[0m
+  [4;36;1mSQL (0.013755)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.005015)[0m   [0mUPDATE schema_info SET version = 9[0m
+  [4;36;1mSQL (0.002681)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.004076)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000526)[0m   [0;1mPRAGMA index_list(experiments)[0m
+  [4;35;1mSQL (0.001844)[0m   [0mPRAGMA index_list(members)[0m
+  [4;36;1mSQL (0.000486)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.000569)[0m   [0mPRAGMA index_list(supervisors)[0m
+  [4;36;1mSQL (0.000485)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.006183)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.001691)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001523)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002255)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMembershipsAndAddProjectsIdToMemberships (9)
+  [4;36;1mSQL (0.483831)[0m   [0;1mALTER TABLE memberships ADD "trial_id" integer[0m
+  [4;35;1mSQL (0.024952)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.017298)[0m   [0;1mCREATE TEMPORARY TABLE altered_memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "project_id" integer DEFAULT NULL, "project_type" varchar(255) DEFAULT NULL, "trial_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000660)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.011750)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.001915)[0m   [0mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "project_type" varchar(255) DEFAULT NULL, "trial_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000643)[0m   [0;1mPRAGMA index_list(altered_memberships)[0m
+  [4;35;1mSQL (0.001452)[0m   [0mDROP TABLE altered_memberships[0m
+  [4;36;1mSQL (0.003109)[0m   [0;1mCREATE TEMPORARY TABLE altered_memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "project_type" varchar(255) DEFAULT NULL, "trial_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000641)[0m   [0mPRAGMA index_list(memberships)[0m
+  [4;36;1mSQL (0.002170)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.002293)[0m   [0mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "trial_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000666)[0m   [0;1mPRAGMA index_list(altered_memberships)[0m
+  [4;35;1mSQL (0.003297)[0m   [0mDROP TABLE altered_memberships[0m
+  [4;36;1mSQL (0.003718)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.002110)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateExperiments (8)
+  [4;36;1mSQL (0.098155)[0m   [0;1mDROP TABLE experiments[0m
+  [4;35;1mSQL (0.004607)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.002223)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembersCountToSupervisors (7)
+  [4;35;1mSQL (0.002278)[0m   [0mCREATE TEMPORARY TABLE altered_supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "members_count" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.001232)[0m   [0;1mPRAGMA index_list(supervisors)[0m
+  [4;35;1mSQL (0.002719)[0m   [0mDROP TABLE supervisors[0m
+  [4;36;1mSQL (0.030185)[0m   [0;1mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000589)[0m   [0mPRAGMA index_list(altered_supervisors)[0m
+  [4;36;1mSQL (0.000887)[0m   [0;1mDROP TABLE altered_supervisors[0m
+  [4;35;1mSQL (0.002849)[0m   [0mUPDATE schema_info SET version = 6[0m
+  [4;36;1mSQL (0.001648)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;35;1mSQL (0.003575)[0m   [0mCREATE TEMPORARY TABLE altered_members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "supervisor_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.047058)[0m   [0;1mPRAGMA index_list(members)[0m
+  [4;35;1mSQL (0.001586)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.001322)[0m   [0;1mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000519)[0m   [0mPRAGMA index_list(altered_members)[0m
+  [4;36;1mSQL (0.001112)[0m   [0;1mDROP TABLE altered_members[0m
+  [4;35;1mSQL (0.004707)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.001796)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;35;1mSQL (0.005646)[0m   [0mDROP TABLE supervisors[0m
+  [4;36;1mSQL (0.003138)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.002127)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;36;1mSQL (0.002269)[0m   [0;1mCREATE TEMPORARY TABLE altered_trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "membership_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000531)[0m   [0mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.001572)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.001267)[0m   [0mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000477)[0m   [0;1mPRAGMA index_list(altered_trials)[0m
+  [4;35;1mSQL (0.000883)[0m   [0mDROP TABLE altered_trials[0m
+  [4;36;1mSQL (0.004085)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.001617)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.005468)[0m   [0;1mDROP TABLE memberships[0m
+  [4;35;1mSQL (0.004815)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.001612)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.004350)[0m   [0mDROP TABLE members[0m
+  [4;36;1mSQL (0.003119)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.002434)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.005286)[0m   [0;1mDROP TABLE trials[0m
+  [4;35;1mSQL (0.003279)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.001777)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.001594)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.006528)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001699)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateTrials (1)
+  [4;36;1mSQL (0.007341)[0m   [0;1mCREATE TABLE trials ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "hours" decimal DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.119547)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.001588)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateMembers (2)
+  [4;35;1mSQL (0.003483)[0m   [0mCREATE TABLE members ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "membership_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.373555)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.003132)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateMemberships (3)
+  [4;36;1mSQL (0.006947)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.004037)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.090003)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddMembershipIdToTrials (4)
+  [4;35;1mSQL (0.100599)[0m   [0mALTER TABLE trials ADD "membership_id" integer[0m
+  [4;36;1mSQL (0.066748)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.007041)[0m   [0mUPDATE schema_info SET version = 4[0m
+  [4;36;1mSQL (0.002393)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateSupervisors (5)
+  [4;35;1mSQL (0.007126)[0m   [0mCREATE TABLE supervisors ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "title" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.004933)[0m   [0;1mUPDATE schema_info SET version = 5[0m
+  [4;35;1mSQL (0.002143)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddSupervisorIdToMembers (6)
+  [4;36;1mSQL (0.006741)[0m   [0;1mALTER TABLE members ADD "supervisor_id" integer[0m
+  [4;35;1mSQL (0.069630)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.005187)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.002203)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddMembersCountToSupervisors (7)
+  [4;36;1mSQL (0.030862)[0m   [0;1mALTER TABLE supervisors ADD "members_count" integer[0m
+  [4;35;1mSQL (0.020199)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.006381)[0m   [0;1mUPDATE schema_info SET version = 7[0m
+  [4;35;1mSQL (0.003237)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateExperiments (8)
+  [4;36;1mSQL (0.007730)[0m   [0;1mCREATE TABLE experiments ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "description" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.005565)[0m   [0mUPDATE schema_info SET version = 8[0m
+  [4;36;1mSQL (0.002182)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to RemoveTrialsIdFromMembershipsAndAddProjectsIdToMemberships (9)
+  [4;35;1mSQL (0.003162)[0m   [0mCREATE TEMPORARY TABLE altered_memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "trial_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000475)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.001780)[0m   [0mDROP TABLE memberships[0m
+  [4;36;1mSQL (0.001221)[0m   [0;1mCREATE TABLE memberships ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "member_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.000496)[0m   [0mPRAGMA index_list(altered_memberships)[0m
+  [4;36;1mSQL (0.000744)[0m   [0;1mDROP TABLE altered_memberships[0m
+  [4;35;1mSQL (0.004845)[0m   [0mALTER TABLE memberships ADD "project_id" integer[0m
+  [4;36;1mSQL (0.015031)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.004907)[0m   [0mALTER TABLE memberships ADD "project_type" varchar(255)[0m
+  [4;36;1mSQL (0.064179)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.004423)[0m   [0mUPDATE schema_info SET version = 9[0m
+  [4;36;1mSQL (0.002196)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.003603)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000528)[0m   [0;1mPRAGMA index_list(experiments)[0m
+  [4;35;1mSQL (0.000982)[0m   [0mPRAGMA index_list(members)[0m
+  [4;36;1mSQL (0.000520)[0m   [0;1mPRAGMA index_list(memberships)[0m
+  [4;35;1mSQL (0.000463)[0m   [0mPRAGMA index_list(supervisors)[0m
+  [4;36;1mSQL (0.000501)[0m   [0;1mPRAGMA index_list(trials)[0m
+  [4;36;1mSQL (0.022584)[0m   [0;1mINSERT INTO trials ("name", "updated_at", "membership_id", "description", "hours", "created_at") VALUES('cc', '2007-08-27 22:32:22', NULL, 'billly', NULL, '2007-08-27 22:32:22')[0m
+  [4;35;1mSQL (0.005302)[0m   [0mINSERT INTO members ("name", "updated_at", "membership_id", "supervisor_id", "created_at") VALUES('me', '2007-08-27 22:33:33', NULL, NULL, '2007-08-27 22:33:33')[0m
+  [4;36;1mTrial Load (0.007202)[0m   [0;1mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;35;1mMember Load (0.003430)[0m   [0mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;36;1mMembership Load (0.001559)[0m   [0;1mSELECT * FROM memberships WHERE (memberships.member_id = 1) [0m
+  [4;35;1mSQL (0.084770)[0m   [0mINSERT INTO memberships ("project_type", "project_id", "updated_at", "member_id", "created_at") VALUES('Trial', 1, '2007-08-27 22:34:46', 1, '2007-08-27 22:34:46')[0m
+  [4;36;1mSQL (0.017752)[0m   [0;1mINSERT INTO experiments ("name", "updated_at", "description", "created_at") VALUES('waterbollox', '2007-08-27 22:43:51', 'drink some water', '2007-08-27 22:43:51')[0m
+  [4;35;1mMembership Load (0.001518)[0m   [0mSELECT * FROM memberships WHERE (memberships.project_id = 1 AND memberships.project_type = 'Experiment') [0m
+  [4;36;1mSQL (0.003618)[0m   [0;1mINSERT INTO memberships ("project_type", "project_id", "updated_at", "member_id", "created_at") VALUES('Experiment', 1, '2007-08-27 22:45:03', 1, '2007-08-27 22:45:03')[0m
+  [4;35;1mMembership Load (0.004262)[0m   [0mSELECT * FROM memberships [0m
+  [4;36;1mMember Load (0.004654)[0m   [0;1mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;35;1mMembership Load (0.004537)[0m   [0mSELECT * FROM memberships WHERE (memberships.member_id = 1) [0m
+  [4;36;1mMember Load (0.096852)[0m   [0;1mSELECT * FROM members [0m
+  [4;35;1mMember Load (0.004348)[0m   [0mSELECT * FROM members WHERE (members."id" = 1) [0m
+  [4;36;1mMembership Load (0.005697)[0m   [0;1mSELECT * FROM memberships WHERE (memberships.member_id = 1) [0m
+  [4;35;1mTrial Load (0.033956)[0m   [0mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;36;1mTrial Load (0.006049)[0m   [0;1mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;35;1mTrial Load (0.005541)[0m   [0mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+  [4;36;1mMember Load (0.004007)[0m   [0;1mSELECT members.* FROM members INNER JOIN memberships ON members.id = memberships.member_id WHERE ((memberships.project_type = 'Trial') AND (memberships.project_id = 1)) [0m
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-09-05 21:53:39) [GET]
+  Session ID: 5f4f16666541e84780b9edf6658b5c1d
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;36;1mTrial Load (0.591021)[0m   [0;1mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 1.10558 (0 reqs/sec) | Rendering: 0.25344 (22%) | DB: 0.59102 (53%) | 200 OK [http://localhost/]
+
+
+Processing TrialsController#edit (for 127.0.0.1 at 2007-09-05 21:55:24) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"trials"}
+  [4;35;1mTrial Load (0.052614)[0m   [0mSELECT * FROM trials WHERE (trials."id" = 1) [0m
+Rendering template within layouts/trials
+Rendering trials/edit
+Completed in 0.85498 (1 reqs/sec) | Rendering: 0.18994 (22%) | DB: 0.05261 (6%) | 200 OK [http://localhost/trials/1/edit]
+
+
+Processing TrialsController#new (for 127.0.0.1 at 2007-09-05 21:55:43) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"new", "controller"=>"trials"}
+Rendering template within layouts/trials
+Rendering trials/new
+Completed in 0.26910 (3 reqs/sec) | Rendering: 0.10172 (37%) | DB: 0.00000 (0%) | 200 OK [http://localhost/trials/new]
+
+
+Processing ExperimentsController#index (for 127.0.0.1 at 2007-09-06 02:01:25) [GET]
+  Session ID: 1a3f7b15da0c5b5f6be93e0c2cf3e803
+  Parameters: {"action"=>"index", "controller"=>"experiments"}
+  [4;36;1mExperiment Load (0.019300)[0m   [0;1mSELECT * FROM experiments [0m
+Rendering template within layouts/experiments
+Rendering experiments/index
+Completed in 0.24149 (4 reqs/sec) | Rendering: 0.15747 (65%) | DB: 0.01930 (7%) | 200 OK [http://localhost/experiments]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2007-09-06 02:01:41) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/projects" with {:method=>:get}):
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1373:in `recognize_path'
+    /vendor/rails/actionpack/lib/action_controller/routing.rb:1356:in `recognize'
+    /vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:84:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/1.8/sync.rb:229:in `synchronize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/rails.rb:83:in `process'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:580:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:579:in `process_client'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:686:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `initialize'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `new'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel.rb:673:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:267:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `each'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/configurator.rb:266:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:127:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/lib/mongrel/command.rb:211:in `run'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/gems/1.8/gems/mongrel-0.3.13.4/bin/mongrel_rails:231
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:488:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle/powerpc/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:495:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering /Users/karenhawthorn/Documents/rubyonrails_apps/clinical_trials/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2007-09-06 02:01:53) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;35;1mTrial Load (0.008724)[0m   [0mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.43311 (2 reqs/sec) | Rendering: 0.35641 (82%) | DB: 0.00872 (2%) | 200 OK [http://localhost/trials]
+
+
+Processing TrialsController#new (for 127.0.0.1 at 2007-09-06 02:01:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"new", "controller"=>"trials"}
+Rendering template within layouts/trials
+Rendering trials/new
+Completed in 0.18817 (5 reqs/sec) | Rendering: 0.02638 (14%) | DB: 0.00000 (0%) | 200 OK [http://localhost/trials/new]
+
+
+Processing TrialsController#index (for 127.0.0.1 at 2008-03-24 00:37:31) [GET]
+  Session ID: a9f8a182b3350d4d05d25979cb074a43
+  Parameters: {"action"=>"index", "controller"=>"trials"}
+  [4;36;1mTrial Load (0.001500)[0m   [0;1mSELECT * FROM trials [0m
+Rendering template within layouts/trials
+Rendering trials/index
+Completed in 0.01754 (57 reqs/sec) | Rendering: 0.01068 (60%) | DB: 0.00150 (8%) | 200 OK [http://localhost/]
+
+
+Processing ExperimentsController#index (for 127.0.0.1 at 2008-03-24 00:37:40) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--7570d18c401107a26bce83d4a73219ad294bd296
+  Parameters: {"action"=>"index", "controller"=>"experiments"}
+  [4;35;1mExperiment Load (0.000578)[0m   [0mSELECT * FROM experiments [0m
+Rendering template within layouts/experiments
+Rendering experiments/index
+Completed in 0.01420 (70 reqs/sec) | Rendering: 0.00883 (62%) | DB: 0.00058 (4%) | 200 OK [http://localhost/experiments]

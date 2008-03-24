@@ -1,0 +1,22 @@
+<h1>Listing supervisors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+  </tr>
+
+<% for supervisor in @supervisors %>
+  <tr>
+    <td><%=h supervisor.name %></td>
+    <td><%=h supervisor.title %></td>
+    <td><%= link_to 'Show', supervisor %></td>
+    <td><%= link_to 'Edit', edit_supervisor_path(supervisor) %></td>
+    <td><%= link_to 'Destroy', supervisor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New supervisor', new_supervisor_path %>

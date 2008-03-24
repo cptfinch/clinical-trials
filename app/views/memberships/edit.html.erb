@@ -1,0 +1,22 @@
+<h1>Editing membership</h1>
+
+<%= error_messages_for :membership %>
+
+<% form_for(@membership) do |f| %>
+  <p>
+    <b>Member</b><br />
+    <%= f.text_field :member_id %>
+  </p>
+
+  <p>
+    <b>Trial</b><br />
+    <%= f.text_field :trial_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @membership %> |
+<%= link_to 'Back', memberships_path %>
